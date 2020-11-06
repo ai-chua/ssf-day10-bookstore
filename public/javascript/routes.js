@@ -51,9 +51,28 @@ module.exports = () => {
       book[0].authors = authors
       const bookExist = book.length == 1
       // console.log(result)
-      res.status(200)
-      res.type('text/html')
-      res.render('book', { book, bookExist })
+      
+      res.format({
+        'text/html': () => {
+          res.status(200)
+          res.render('book', { book, bookExist })
+        },
+        'application/json': () => {
+          res.status(200)
+          res.json({
+            // bookId: ,
+            // title: ,
+            // authors: ,
+            // summary: ,
+            // pages: ,
+            // rating: ,
+            // ratingCount: ,
+            // genre: 
+          })
+        }
+      })
+
+
     } catch(e) {
       res.status(500)
       res.type('text/html')
