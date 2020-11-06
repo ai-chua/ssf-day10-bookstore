@@ -5,11 +5,13 @@
       <img src="{{this.image_url}}" alt="Book Cover" srcset="" class="book-cover">
     </div>
     <div class="col-7 p-2">
-      <h3 class="red">{{this.title}}</h3>
-      <p>Author(s):{{{this.authors}}}</p>
+      <h3>{{this.title}}</h3>
+      <p>Author(s): {{{this.authors}}}</p>
       <p>Genres: {{this.genres}}</p>
       <p>Pages: {{{this.pages}}}</p>
-      <p>{{this.description}}</p>
+      <p>Description:<br>
+        {{this.description}}
+      </p>
       <div>
         <form action="/review/{{this.book_id}}">
           <input type="hidden" name="title" value="{{this.title}}">

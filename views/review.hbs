@@ -1,0 +1,18 @@
+{{#if hasReviews}}
+  {{#each reviews}}
+    <div class="w-100 my-2">
+      <h3>{{this.book_title}}</h3>
+      <p>Author: {{this.book_author}}</p>
+      <p>A review by {{this.byline}}, published on {{this.publication_dt}}</p>
+      <p>{{this.summary}}<br>
+        <span class="copyright">Copyright © 2020 The New York Times Company. All Rights Reserved.</span>
+      </p>
+      <a href="{{this.url}}" class="btn btn-primary" target="new">Read in Full</a>
+    </div>
+  {{/each}}
+{{else}}
+  <p>Oops, this is awkward, your search returned no reviews for <strong>{{title}}</strong></p>
+{{/if}}
+
+<br><br>
+<a href="/">Return home</a>

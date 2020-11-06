@@ -1,5 +1,7 @@
 // Load required libraries from node_modules
 const express = require('express')
+const withQuery = require('with-query').default
+const fetch = require('node-fetch')
 const pool = require('./create_pool')
 
 // SQL Queries
@@ -63,7 +65,21 @@ module.exports = () => {
   })
 
   router.get('/review/:book_id', async (req, res) => {
-
+    const title = req.query.title
+    const apiKey = process.env.API_KEY
+    const url = withQuery(process.env.ENDPOINT,{
+      'api-key': apiKey,
+      title: title
+    })
+    const rawResults = await fetch(url)
+    console.info('Receiving API response!')
+    const reviewResults = await rawResults.json()
+    console.info(reviewResults)
+    const reviews = reviewResults.results
+    const hasReviews = reviews.length > 0
+    res.status(200)
+    res.type('text/html')
+    res.render('review', { reviews, hasReviews, title }) 
   })
   
   router.get(['/', '/index.html'], (req, res) => {
