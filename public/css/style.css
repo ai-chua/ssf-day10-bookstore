@@ -1,0 +1,20 @@
+.categories-wrapper {
+ 
+}
+
+.category-card {
+  width: 8rem;
+  height: 5rem;
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 1rem;
+}
+
+.red {
+  color: red !important;
+}
+
+img.book-cover {
+  width: 375px;
+  height: 500px;
+}

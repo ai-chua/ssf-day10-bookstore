@@ -1,0 +1,32 @@
+<div class="row my-4">
+  {{#if bookExist}}
+  {{#each book}}
+    <div class="col-5 p-2 d-flex justify-content-center">
+      <img src="{{this.image_url}}" alt="Book Cover" srcset="" class="book-cover">
+    </div>
+    <div class="col-7 p-2">
+      <h3 class="red">{{this.title}}</h3>
+      <p>Author(s):{{{this.authors}}}</p>
+      <p>Genres: {{this.genres}}</p>
+      <p>Pages: {{{this.pages}}}</p>
+      <p>{{this.description}}</p>
+      <div>
+        <form action="/review/{{this.book_id}}">
+          <input type="hidden" name="title" value="{{this.title}}">
+          <input type="hidden" name="author" value="{{this.authors}}">
+          <button type="submit" class="btn btn-primary">Find Review!</button>
+        </form>
+      </div>
+    </div>
+
+
+  {{/each}}
+  {{else}}
+    <div class="text-center">
+      <p>Are you sure you got the right ID? 🧐</p>
+    </div>
+  {{/if}}
+</div>
+
+<br><br>
+<a href="/">Return home</a>

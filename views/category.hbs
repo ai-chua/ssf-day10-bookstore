@@ -1,0 +1,12 @@
+<h3>Books starting with {{firstChar}}</h3>
+
+{{#if hasBooks}}
+  {{#each booksArr}}
+    <a href="/book/{{this.book_id}}">{{this.title}}</a><br>
+  {{/each}}
+{{else}}
+    <p>Your search returned no titles 😞</p>
+{{/if}}
+
+<br><br>
+<a href="/">Return home</a>

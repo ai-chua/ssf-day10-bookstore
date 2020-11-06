@@ -1,0 +1,21 @@
+<h3>Alphabets</h3>
+<div class="letters-wrapper w-100 d-flex flex-wrap my-4">
+  {{#each letters}}
+  <a href="/category/{{this}}" class="m-2 text-center">
+    <div class="category-card d-flex justify-content-center align-items-center text-center">
+      {{this}}
+    </div>
+  </a>
+  {{/each}}
+</div>
+
+<h3>Numbers</h3>
+<div class="numbers-wrapper w-100 d-flex flex-wrap my-4">
+  {{#each numbers}}
+  <a href="/category/{{this}}" class="m-2 text-center">
+    <div class="category-card d-flex justify-content-center align-items-center text-center">
+      {{this}}
+    </div>
+  </a>
+  {{/each}}
+</div>
