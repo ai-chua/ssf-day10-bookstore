@@ -65,6 +65,7 @@ module.exports = () => {
   })
 
   router.get('/review/:book_id', async (req, res) => {
+    const bookId = req.query.bookId
     const title = req.query.title
     const apiKey = process.env.API_KEY
     const url = withQuery(process.env.ENDPOINT,{
@@ -75,8 +76,9 @@ module.exports = () => {
     console.info('Receiving API response!')
     const reviewResults = await rawResults.json()
     console.info(reviewResults)
-    const reviews = reviewResults.results
-    const hasReviews = reviews.length > 0
+    const reviews = await reviewResults.results
+    console.log(reviewResults.num_results)
+    const hasReviews = reviewResults.num_results >= 1
     res.status(200)
     res.type('text/html')
     res.render('review', { reviews, hasReviews, title }) 

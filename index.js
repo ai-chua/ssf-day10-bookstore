@@ -4,9 +4,7 @@ require('dotenv').config();
 // Load required libraries from node_modules
 const express = require('express')
 const hbs = require('express-handlebars')
-const bodyParser = require('body-parser')
-const fetch = require('node-fetch')
-const withQuery = require('with-query').default
+const morgan = require('morgan')
 
 // Configure the environment
 const PORT = parseInt(process.env.PORT) || 3000
@@ -22,6 +20,9 @@ const app = express()
 app.engine('hbs', hbs({ defaultLayout: 'default.hbs' }))
 app.set('view engine', 'hbs')
 app.set('views', __dirname + '/views')
+
+// Configure morgan
+app.use(morgan('combined'))
 
 // Configure the static files
 app.use(express.static(__dirname + '/public'))
