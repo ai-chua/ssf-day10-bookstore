@@ -8,4 +8,4 @@ module.exports = mysql.createPool({
   password: process.env.DB_PASSWORD,
   connectionLimit: parseInt(process.env.DB_CONNECTION_LIMIT),
   timezone: '+08:00'
-})
+})  
